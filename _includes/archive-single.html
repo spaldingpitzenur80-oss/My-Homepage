@@ -12,6 +12,7 @@
   {% assign title = post.title %}
 {% endif %}
 
+
 <div class="{{ include.type | default: "list" }}__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
@@ -74,6 +75,10 @@
           <a href="{{ post.codeurl }}">GitHub</a>
         {% endif %}
       </p>
+    {% endif %}
+
+    {% if post.code_status and post.codeurl == nil %}
+      <p>Code: {{ post.code_status }}</p>
     {% endif %}
 
   </article>
